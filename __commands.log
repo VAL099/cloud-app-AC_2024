@@ -7,7 +7,6 @@ docker tag ac_app:latest val099/ac_app:latest
 docker push val099/ac_app:latest
 
 
-
 # PART 3:
 kubectl apply -f deployment-v0.5.yaml # first
 kubectl apply -f deployment-v1.yaml # custom
