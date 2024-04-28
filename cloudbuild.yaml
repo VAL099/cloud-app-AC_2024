@@ -1,10 +1,16 @@
+substitutions:
+  _PIPELINE_NAME: 'cicd--pipeline'
+  _REGION: 'us-central1'
+  _PROJECT_ID: 'ac-m-laboratory'
+  _RELEASE_NAME: 'projects/ac-m-laboratory/locations/us-central1/deliveryPipelines/cicd--pipeline/releases/app-release-${SHORT_SHA}:latest'
+
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/ac-m-laboratory/gke-repo/ac-cloud-app', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/${PROJECT_ID}/gke-repo/ac-cloud-app', '.']
   id: 'Build Docker Image'
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/ac-m-laboratory/gke-repo/ac-cloud-app:latest']
+  args: ['push', 'us-central1-docker.pkg.dev/${PROJECT_ID}/gke-repo/ac-cloud-app:latest']
   id: 'Push Docker Image'
 
 # Step 3: Deploy to GKE
@@ -14,19 +20,17 @@ steps:
     - '-xe'
     - '-c'
     - |
-      gcloud config set deploy/region us-central1
-      gcloud deploy apply --file _deploy/pipeline.yaml --region=us-central1
-      gcloud deploy apply --file _deploy/prod.yaml --region=us-central1
-
-      RELEASE_NAME=projects/ac-m-laboratory/locations/us-central1/deliveryPipelines/cicd--pipeline/releases/app-release-${SHORT_SHA}
+      gcloud config set deploy/region $_REGION
+      gcloud deploy apply --file _deploy/pipeline.yaml --region=$_REGION
+      gcloud deploy apply --file _deploy/prod.yaml --region=$_REGION
 
       echo "SHORT_SHA: ${SHORT_SHA}" &&
-      gcloud deploy releases create ${RELEASE_NAME} \
-      --delivery-pipeline=cicd--pipeline \
-      --region=us-central1 \
+      gcloud deploy releases create "app-release-${SHORT_SHA}:latest" \
+      --delivery-pipeline=$_PIPELINE_NAME \
+      --region=$_REGION \
       --from-k8s-manifest=_kube/deployment-v1.yaml
 
-serviceAccount: 'projects/ac-m-laboratory/serviceAccounts/service@ac-m-laboratory.iam.gserviceaccount.com'
+serviceAccount: 'projects/${PROJECT_ID}/serviceAccounts/service@${PROJECT_ID}.iam.gserviceaccount.com'
 
 options:
   logging: CLOUD_LOGGING_ONLY
