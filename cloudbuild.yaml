@@ -14,9 +14,9 @@ steps:
     - '-xe'
     - '-c'
     - |
-      gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
-      gcloud deploy apply --file deploy/dev.yaml --region=us-central1
-      
+      gcloud deploy apply --file _deploy/pipeline.yaml --region=us-central1
+      gcloud deploy apply --file _deploy/dev.yaml --region=us-central1
+
       echo "SHORT_SHA: ${SHORT_SHA}" &&
       gcloud deploy releases create app-release-${SHORT_SHA}
       --delivery-pipeline=cicd--pipeline
