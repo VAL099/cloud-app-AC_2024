@@ -25,7 +25,7 @@ steps:
       gcloud deploy apply --file _deploy/prod.yaml --region=$_REGION
 
       echo "SHORT_SHA: ${SHORT_SHA}" &&
-      gcloud deploy releases create "app-release-${SHORT_SHA}:latest" \
+      gcloud deploy releases create $_RELEASE_NAME \
       --delivery-pipeline=$_PIPELINE_NAME \
       --region=$_REGION \
       --from-k8s-manifest=_kube/deployment-v1.yaml
