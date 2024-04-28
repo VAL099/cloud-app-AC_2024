@@ -14,14 +14,17 @@ steps:
     - '-xe'
     - '-c'
     - |
+      gcloud config set deploy/region us-central1
       gcloud deploy apply --file _deploy/pipeline.yaml --region=us-central1
       gcloud deploy apply --file _deploy/prod.yaml --region=us-central1
 
+      RELEASE_NAME=projects/ac-m-laboratory/locations/us-central1/deliveryPipelines/cicd--pipeline/releases/app-release-${SHORT_SHA}
+
       echo "SHORT_SHA: ${SHORT_SHA}" &&
-      gcloud deploy releases create app-release-${SHORT_SHA}
-      --delivery-pipeline=cicd--pipeline
-      --region=us-central1
-      --skaffold-file=skaffold.yaml
+      gcloud deploy releases create ${RELEASE_NAME} \
+      --delivery-pipeline=cicd--pipeline \
+      --region=us-central1 \
+      --from-k8s-manifest=_kube/deployment-v1.yaml
 
 serviceAccount: 'projects/ac-m-laboratory/serviceAccounts/service@ac-m-laboratory.iam.gserviceaccount.com'
 
