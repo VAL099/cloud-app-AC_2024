@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="md.utm.cloudapp.CloudAppApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-20T07:47:58" hostname="WORKMACHINE" time="0.743">
+  <properties/>
+  <testcase name="contextLoads()" classname="md.utm.cloudapp.CloudAppApplicationTests" time="0.743"/>
+  <system-out><![CDATA[10:47:57.138 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [md.utm.cloudapp.CloudAppApplicationTests]: CloudAppApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:47:57.238 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration md.utm.cloudapp.CloudAppApplication for test class md.utm.cloudapp.CloudAppApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2024-04-20T10:47:57.643+03:00  INFO 10896 --- [cloud-app] [    Test worker] m.utm.cloudapp.CloudAppApplicationTests  : Starting CloudAppApplicationTests using Java 21.0.2 with PID 10896 (started by valer_q8xeivd in C:\Users\valer_q8xeivd\OneDrive\Desktop\AC_Labs\cloud-app-AC_2024)
+2024-04-20T10:47:57.644+03:00  INFO 10896 --- [cloud-app] [    Test worker] m.utm.cloudapp.CloudAppApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2024-04-20T10:47:58.792+03:00  INFO 10896 --- [cloud-app] [    Test worker] m.utm.cloudapp.CloudAppApplicationTests  : Started CloudAppApplicationTests in 1.379 seconds (process running for 2.599)
+]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\valer_q8xeivd\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.12\be4984cb6fd1ef1d11f218a648889dfda44b8a15\byte-buddy-agent-1.14.12.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>
