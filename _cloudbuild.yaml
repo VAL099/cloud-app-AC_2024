@@ -15,6 +15,6 @@ steps:
 
 # Secret required for pushing to Docker Hub
 secrets:
-  - kmsKeyName: projects/ac-m-laboratory/locations/global/keyRings/key-ring/cryptoKeys/key
+  - kmsKeyName: projects/748761430178/locations/global/keyRings/key-ring/cryptoKeys/key
     secretEnv:
-      DOCKERHUB_TOKEN: 'projects/ac-m-laboratory/secrets/dockerhub-token/versions/latest'
+      DOCKERHUB_TOKEN: 'projects/748761430178/secrets/dockerhub-token'
