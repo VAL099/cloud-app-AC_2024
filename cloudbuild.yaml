@@ -9,8 +9,7 @@ steps:
 
 # Step 3: Deploy to GKE
 - name: 'google/cloud-sdk:latest'
-  args: ['-xe', '-c', '|',
-          'gcloud deploy releases create app-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-pipeline --region=us-central1 --skaffold-file=skaffold.yaml']
+  args: ['-xe', '-c', '|', 'gcloud deploy releases create app-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-pipeline --region=us-central1 --skaffold-file=skaffold.yaml']
 
 options:
   logging: CLOUD_LOGGING_ONLY
