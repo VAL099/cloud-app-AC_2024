@@ -22,4 +22,5 @@ steps:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-  serviceAccount: 'projects/ac-m-laboratory/serviceAccounts/service@ac-m-laboratory.iam.gserviceaccount.com
+  serviceAccount: 'projects/ac-m-laboratory/serviceAccounts/service@ac-m-laboratory.iam.gserviceaccount.com'
+  
