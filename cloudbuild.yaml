@@ -1,10 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/748761430178/gke-repo/ac-cloud-app', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/ac-m-laboratory/gke-repo/ac-cloud-app', '.']
   id: 'Build Docker Image'
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/748761430178/gke-repo/ac-cloud-app']
+  args: ['push', 'us-central1-docker.pkg.dev/ac-m-laboratory/gke-repo/ac-cloud-app']
   id: 'Push Docker Image'
 
 # Step 3: Deploy to GKE
