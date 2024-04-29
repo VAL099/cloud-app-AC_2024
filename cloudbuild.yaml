@@ -29,6 +29,7 @@ steps:
         gcloud deploy apply --file _deploy/pipeline.yaml --region=${_REGION}
 
         echo "Release Name: ${_RELEASE_NAME}"
+        
         gcloud deploy releases create ${_RELEASE_NAME} \
         --delivery-pipeline=${_PIPELINE_NAME} \
         --region=${_REGION} \

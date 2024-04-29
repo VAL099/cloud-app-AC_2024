@@ -1,7 +1,7 @@
 FROM openjdk:17
 
 WORKDIR /app
-
+# add here execution of gradlew.bat build
 COPY build build
 COPY src src
 
