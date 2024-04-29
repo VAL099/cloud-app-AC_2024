@@ -1,8 +1,8 @@
 substitutions:
   _PIPELINE_NAME: 'cicd--pipeline'
   _REGION: 'us-central1'
-  _PROJECT_ID: 'ac-m-laboratory'
-  _RELEASE_NAME: 'projects/ac-m-laboratory/locations/us-central1/deliveryPipelines/cicd--pipeline/releases/app-release-${SHORT_SHA}'
+  _PROJECT_ID: 'ac-m-laborator-clean'
+  _RELEASE_NAME: 'projects/$_PROJECT_ID/locations/us-central1/deliveryPipelines/cicd--pipeline/releases/app-release-${SHORT_SHA}'
 
 steps:
 - name: 'gcr.io/cloud-builders/docker'
@@ -30,7 +30,8 @@ steps:
       --region=$_REGION \
       --from-k8s-manifest=_kube/deployment-v1.yaml
 
-serviceAccount: 'projects/${PROJECT_ID}/serviceAccounts/service@${PROJECT_ID}.iam.gserviceaccount.com'
-
+serviceAccount: 'projects/$_PROJECT_ID/serviceAccounts/service@$_PROJECT_ID.iam.gserviceaccount.com'
 options:
   logging: CLOUD_LOGGING_ONLY
+
+# gcloud config set account 'service@$_PROJECT_ID.iam.gserviceaccount.com'
