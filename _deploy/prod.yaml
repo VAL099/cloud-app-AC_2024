@@ -6,4 +6,4 @@ metadata:
   labels: {}
 description: prod
 gke:
-  cluster: projects/ac-m-laborator-clean/locations/europe-central2-a/clusters/ac-laboratory-clusst3r
+  cluster: projects/ac-m-laborator-clean/locations/us-central1-a/clusters/ac-laboratory-clusst3r
