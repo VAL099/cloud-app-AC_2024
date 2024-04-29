@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: ac-laboratory-v1
-        image: us-central1-docker.pkg.dev/prj-poc-001/gke-repo/ac-cloud-app
-        ports:
+        image: us-central1-docker.pkg.dev/ac-m-laborator-clean/gke-repo/ac-cloud-app:latest
+        ports: 
         - containerPort: 80 # Expose the container on internal port 80 = EXPOSE in Dockerfile
   strategy: # update w\o downtime
     type: RollingUpdate
