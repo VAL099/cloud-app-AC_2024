@@ -8,6 +8,6 @@ class MainController {
 
     @GetMapping("/")
     fun main(): String {
-        return "<h1>HELLO WORLD!</h1>"
+        return "<h1>HELLO WORLD!</h1><br><span>LINE</span>"
     }
 }
