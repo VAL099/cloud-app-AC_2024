@@ -23,7 +23,7 @@
 
 10. Autoscaling pct.10, se configureaza cind creezi cluster-ul. Total limits => min=1, max=num_replicas
 11. Rollback 
-12. No downtime => este datorita la pipeline si setarilor  
+12. No downtime => Node pool upgrade strategy => 
 
 # THE Following code is a draft  and will be deleted after implimentation:
 
