@@ -2,15 +2,15 @@ substitutions:
   _PIPELINE_NAME: 'cicd--pipeline'
   _REGION: 'us-central1'
   _PROJECT_ID: 'ac-m-laborator-clean'
-  _RELEASE_NAME: 'projects/$_PROJECT_ID/locations/us-central1/deliveryPipelines/cicd--pipeline/releases/app-release-${SHORT_SHA}'
+  _RELEASE_NAME: 'projects/{$_PROJECT_ID}/locations/us-central1/deliveryPipelines/cicd--pipeline/releases/app-release-${SHORT_SHA}'
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/${PROJECT_ID}/gke-repo/ac-cloud-app', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/{$_PROJECT_ID}/gke-repo/ac-cloud-app', '.']
     id: 'Build Docker Image'
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/${PROJECT_ID}/gke-repo/ac-cloud-app:latest']
+    args: ['push', 'us-central1-docker.pkg.dev/{$_PROJECT_ID}/gke-repo/ac-cloud-app:latest']
     id: 'Push Docker Image'
 
   # Step 3: Deploy to GKE
@@ -20,18 +20,18 @@ steps:
       - '-c'
       - |
         set -x
-        gcloud config set project $_PROJECT_ID
-        gcloud config set compute/region $_REGION
+        gcloud config set project {$_PROJECT_ID}
+        gcloud config set compute/region {$_REGION}
 
         echo "Deploying to GKE"
 
-        gcloud deploy apply --file _deploy/pipeline.yaml --region=$_REGION
-        gcloud deploy apply --file _deploy/prod.yaml --region=$_REGION
+        gcloud deploy apply --file _deploy/pipeline.yaml --region={$_REGION}
+        gcloud deploy apply --file _deploy/prod.yaml --region={$_REGION}
 
-        echo "Release Name: $_RELEASE_NAME"
-        gcloud deploy releases create $_RELEASE_NAME \
-        --delivery-pipeline=$_PIPELINE_NAME \
-        --region=$_REGION \
+        echo "Release Name: {$_RELEASE_NAME}"
+        gcloud deploy releases create {$_RELEASE_NAME} \
+        --delivery-pipeline={$_PIPELINE_NAME} \
+        --region={$_REGION} \
         --from-k8s-manifest=_kube/deployment-v1.yaml
 
 #serviceAccount: 'projects/$_PROJECT_ID/serviceAccounts/service@$_PROJECT_ID.iam.gserviceaccount.com'
