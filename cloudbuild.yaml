@@ -25,7 +25,6 @@ steps:
       gcloud deploy apply --file _deploy/prod.yaml --region=$_REGION
 
       echo "SHORT_SHA: ${SHORT_SHA}" &&
-      echo "SHORT_SHA: ${SHORT_SHA}" &&
       echo "Release Name: $_RELEASE_NAME" \
       gcloud deploy releases create $_RELEASE_NAME \
       --delivery-pipeline=$_PIPELINE_NAME \
