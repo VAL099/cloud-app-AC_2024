@@ -2,7 +2,7 @@ substitutions:
   _PIPELINE_NAME: 'cicd--pipeline'
   _REGION: 'us-central1'
   _PROJECT_ID: 'ac-m-laborator-clean'
-  _RELEASE_NAME: 'projects/$_PROJECT_ID/locations/us-central1/deliveryPipelines/cicd--pipeline/releases/app-release-$SHORT_SHA'
+  _RELEASE_NAME: 'projects/${_PROJECT_ID}/locations/us-central1/deliveryPipelines/cicd--pipeline/releases/app-release-$SHORT_SHA'
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
