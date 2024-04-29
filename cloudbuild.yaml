@@ -30,7 +30,7 @@ steps:
       --region=$_REGION \
       --from-k8s-manifest=_kube/deployment-v1.yaml
 
-serviceAccount: 'projects/$_PROJECT_ID/serviceAccounts/service@$_PROJECT_ID.iam.gserviceaccount.com'
+#serviceAccount: 'projects/$_PROJECT_ID/serviceAccounts/service@$_PROJECT_ID.iam.gserviceaccount.com'
 options:
   logging: CLOUD_LOGGING_ONLY
 
