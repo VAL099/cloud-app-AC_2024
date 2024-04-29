@@ -1,4 +1,5 @@
 1. Se creeaza un cluster in Kubernetes Engine
+1.1 Se configureaza CLI => `gcloud container clusters get-credentials <cluster_name>`
 2. Se creeaza un repozitoriu in Artifact Registry
 3. Se creeaa un Trigger in Cloud Build (push to branch main)
 
@@ -20,7 +21,8 @@
 
 9. Dupa build reusit, in Cloud Shell scriem `kubectl get services` => External IP is our's service IP
 
-
+10. Autoscaling pct.10, se configureaza cind creezi cluster-ul. Total limits => min=1, max=num_replicas
+11. Rollback 
 
 # THE Following code is a draft  and will be deleted after implimentation:
 
