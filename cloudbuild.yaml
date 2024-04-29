@@ -26,9 +26,9 @@ steps:
         echo "Deploying to GKE"
 
         echo "Release Name: ${_RELEASE_NAME}"
-        
+
         gcloud deploy releases create ${_RELEASE_NAME} \
-        --delivery-pipeline=${_PIPELINE_NAME} \
+        
         --region=${_REGION} \
         --from-k8s-manifest=_kube/deployment-v1.yaml
 
