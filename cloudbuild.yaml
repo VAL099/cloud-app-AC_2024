@@ -25,17 +25,12 @@ steps:
 
         echo "Deploying to GKE"
 
-        gcloud deploy apply --file _deploy/pipeline.yaml --region=${_REGION}
-        gcloud deploy apply --file _deploy/prod.yaml --region=${_REGION}
-
         echo "Release Name: ${_RELEASE_NAME}"
+        
         gcloud deploy releases create ${_RELEASE_NAME} \
         --delivery-pipeline=${_PIPELINE_NAME} \
         --region=${_REGION} \
         --from-k8s-manifest=_kube/deployment-v1.yaml
 
-#serviceAccount: 'projects/$_PROJECT_ID/serviceAccounts/service@$_PROJECT_ID.iam.gserviceaccount.com'
 options:
   logging: CLOUD_LOGGING_ONLY
-
-# gcloud config set account 'service@$_PROJECT_ID.iam.gserviceaccount.com'
