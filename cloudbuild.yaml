@@ -25,15 +25,8 @@ steps:
 
         echo "Deploying to GKE"
 
-        if gcloud deploy apply --file _deploy/pipeline.yaml --region=${_REGION} &&
-           gcloud deploy apply --file _deploy/prod.yaml --region=${_REGION}; then
-          echo "Deployment successful."
-        else
-          echo "Deployment failed. Rolling back to previous version."
-          gcloud deploy releases rollback ${_LAST_SUCCESSFUL_RELEASE_NAME} \
-          --delivery-pipeline=${_PIPELINE_NAME} \
-          --region=${_REGION}
-        fi
+        gcloud deploy apply --file _deploy/prod.yaml --region=${_REGION}
+        gcloud deploy apply --file _deploy/pipeline.yaml --region=${_REGION}
 
         echo "Release Name: ${_RELEASE_NAME}"
         
