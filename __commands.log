@@ -40,5 +40,3 @@ kubectl rollout undo deployment <deployment-name>
 gcloud container clusters update <cluster-name> \
   --enable-autoscaling --min-nodes=1 --max-nodes=10 \
   --zone <zone> --node-pool <node-pool-name>
-
-https://console.cloud.google.com/kubernetes/clusters/details/europe-central2-a/ac-laboratory-clusst3r?project=ac-m-laboratory
