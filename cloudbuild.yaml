@@ -1,7 +1,7 @@
 substitutions:
   _PIPELINE_NAME: 'cicd--pipeline'
   _REGION: 'us-central1'
-  _PROJECT_ID: 'ac-laboratory'
+  _PROJECT_ID: 'ac-laboratory-423906'
   _RELEASE_NAME: 'projects/${_PROJECT_ID}/locations/us-central1/deliveryPipelines/cicd--pipeline/releases/app-release-${SHORT_SHA}'
 
 steps:

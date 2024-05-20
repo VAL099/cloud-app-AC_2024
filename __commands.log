@@ -8,10 +8,8 @@ docker push val099/ac_app:latest
 
 
 # PART 3:
-kubectl apply -f deployment-v0.5.yaml # first
-kubectl apply -f deployment-v1.yaml # custom
-kubectl apply -f deployment_config-v1.yaml # as service
-kubectl get service ac-laboratory-service # get_ip
+kubectl get services # list all services
+kubectl get service <service-name> # get_ip
 
 # PART 4:
 INSTALL gcloud
