@@ -27,12 +27,11 @@
         `kubectl get deployments`
         `kubectl rollout undo deployment <deployment-name>`
 
+9. **Kubernetes cluster should be able to monitor the application**
+    - Using built int state tracker
+
 10. **Kubernetes cluster should be able to autoscale the application based on the load**
     - Kubernetes cluster autoscales using HPA (Horizontal Pod Autoscaler):
         - `minReplicas` - The minimum number of pod replicas to maintain.
         - `maxReplicas` - The maximum number of pod replicas to maintain.
         - `targetCPUUtilizationPercentage` - The target average CPU utilization across all pods.
-
-## Unfinished
-
-9. **Kubernetes cluster should be able to monitor the application**
