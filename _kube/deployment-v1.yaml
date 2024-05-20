@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ac-lab-v1
-        image: us-central1-docker.pkg.dev/ac-laboratory/gke-repo/ac-cloud-app:latest
+        image: us-central1-docker.pkg.dev/ac-laboratory-423906/gke-repo/ac-cloud-app:latest
         ports: 
         - containerPort: 8080
   strategy: # update w\o downtime

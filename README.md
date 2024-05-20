@@ -4,7 +4,7 @@
     - The Dockerfile ensures that the project will be turned into a Docker image.
 
 2. **Docker image should be published to a Docker registry**
-    - The image is published to the Google Container Registry: `us-central1-docker.pkg.dev/ac-laboratory/gke-repo/ac-cloud-app:latest`.
+    - The image is published to the Google Container Registry: `us-central1-docker.pkg.dev/ac-laboratory-423906/gke-repo/ac-cloud-app:latest`.
 
 3. **Docker image should be deployed to a Kubernetes cluster**
     - The deployment configuration `cloud-app-deployment-v1` deploys the Docker image to the Kubernetes cluster.
