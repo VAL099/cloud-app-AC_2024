@@ -38,3 +38,7 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+# MY
+__commands.log
+STEPS.txt
